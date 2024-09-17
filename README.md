@@ -151,27 +151,27 @@ https://api.dmrc.app/rest/assets/protect/file/start?input={"accountId": "{{Accou
 
 **Query Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| input | Object | Contains the Illuminate account ID and file name of the image to protect |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `input` | Object | yes | Contains the Illuminate account ID and file name of the image to protect |
 
 
 **Input Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| `accountId` | String | The ID of the Illuminate account  |
-| `fileName` | String | The file name of the image to protect including the file name extension |
-| `watermarkSettings` | Object | The optional watermark settings to use |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `accountId` | String | yes | The ID of the Illuminate account  |
+| `fileName` | String | yes | The file name of the image to protect including the file name extension |
+| `watermarkSettings` | Object | no | The optional watermark settings to use |
 
 **Watermark Settings**
 
 If you provide watermarkSettings, both fields are required.
 
-| Name | Type | Description |
-|------|------|-------------|
-| `protectionMode` | String | Choose `CHROMA_COMMERCIAL` to adjust colors (for colorful images) or `LUMA_COMMERCIAL` to adjust brightness (for low-color images). The default is `CHROMA_COMMERCIAL` |
-| `strength` | Integer | The strength of the watermark to use: [1-100]. The default is 90 |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `protectionMode` | String | yes | Choose `CHROMA_COMMERCIAL` to adjust colors (for colorful images) or `LUMA_COMMERCIAL` to adjust brightness (for low-color images). The default is `CHROMA_COMMERCIAL` |
+| `strength` | Integer | yes | The strength of the watermark to use: [1-100]. The default is 90 |
 
 
 **Sample Output**
@@ -212,17 +212,17 @@ https://api.dmrc.app/rest/assets/end?input={"accountId": "{{AccountID}}", "asset
 
 **Query Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| input | Object | Contains the Illuminate account ID and asset ID for the uploaded image |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `input` | Object | yes | Contains the Illuminate account ID and asset ID for the uploaded image |
 
 
 **Input Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| `accountId` | String | The ID of the Illuminate account  |
-| `assetId` | String | The asset ID of the image you uploaded |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `accountId` | String | yes | The ID of the Illuminate account  |
+| `assetId` | String | yes | The asset ID of the image you uploaded |
 
 **Sample Output**
 
@@ -271,25 +271,25 @@ https://api.dmrc.app/rest/assets/protect/url?input={"accountId": "{{AccountId}}"
 
 **Query Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| input | Object | Contains the Illuminate account ID, file name of the image, and its Internet location |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `input` | Object | yes | Contains the Illuminate account ID, file name of the image, and its Internet location |
 
 **Input Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| `accountId` | String | The Illuminate account ID |
-| `fileName` | String | The file name of the image to protect including the file name extension |
-| `sourceURL` | String | The URL where the source image is located |
-| `watermarkSettings` | Object | The settings you want to use to apply the watermark. If not provided, default values are used |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `accountId` | String | yes | The Illuminate account ID |
+| `fileName` | String | yes | The file name of the image to protect including the file name extension |
+| `sourceURL` | String | yes | The URL where the source image is located |
+| `watermarkSettings` | Object | no | The settings you want to use to apply the watermark. If not provided, default values are used |
 
 **Watermark Settings**
 
-| Name | Type | Description |
-|------|------|-------------|
-| `protectionMode` | String | The mode you want to use for protecting the image: [ `CHROMA_COMMERCIAL`, `LUMA_COMMERCIAL` ] |
-| `strength` | integer | The strength of the watermark to use: [1-100]. The default is 90 |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `protectionMode` | String | no | The mode you want to use for protecting the image: [ `CHROMA_COMMERCIAL`, `LUMA_COMMERCIAL` ] |
+| `strength` | integer | no | The strength of the watermark to use: [1-100]. The default is 90 |
 
 
 **Sample Output**
@@ -332,12 +332,11 @@ https://api.dmrc.app/rest/assets?accountId={{AccountID}}&first=10&projectId={{Pr
 
 **Query Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| `accountId` | String | The ID of the Illuminate account |
-| `first` | Integer | The number of assets matching the Project ID to return |
-| `projectId` | String | The projectId returned from the first step in the protect or check operation  |
-| `filter` | Object | An optional array of assets |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `accountId` | String | yes | The ID of the Illuminate account |
+| `first` | Integer | yes | The number of assets matching the Project ID to return |
+| `projectId` | String | yes | The projectId returned from the first step in the protect or check operation  |
 
 
 **Sample Output (Protect)**
@@ -445,16 +444,16 @@ https://api.dmrc.app/rest/assets/download?accountId={{AccountID}}&ids={{AssetID}
 
 **Query Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| `accountId` | String | The ID of the Illuminate account |
-| `ids` | `IDs` list | An array of protected image asset IDs to download |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `accountId` | String | yes | The ID of the Illuminate account |
+| `ids` | `IDs` list | yes | An array of protected image asset IDs to download |
 
 **IDs Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| `ids` | String | The assets to return |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `ids` | String | yes | The assets to return |
 
 **Sample Output**
 
@@ -509,17 +508,17 @@ https://api.dmrc.app/rest/assets/check/file/start?input={"accountId": "{{Account
 
 **Query Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| input | Object | Contains the Illuminate account ID and file name of the image to check |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `input` | Object | yes | Contains the Illuminate account ID and file name of the image to check |
 
 
 **Input Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| `accountId` | String | The ID of the Illuminate account  |
-| `fileName` | String | The file name of the image to check including the file name extension |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `accountId` | String | yes | The ID of the Illuminate account  |
+| `fileName` | String | yes | The file name of the image to check including the file name extension |
 
 **Sample Output**
 
@@ -558,17 +557,17 @@ https://api.dmrc.app/rest/assets/check/url?input={"accountId": "{{AccountID}}", 
 
 **Query Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| input | Object | Contains the Illuminate account ID, the file name of the image to check, and the source URL |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `input` | Object | yes | Contains the Illuminate account ID, the file name of the image to check, and the source URL |
 
 **Input Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| `accountId` | String | The ID of the Illuminate account  |
-| `fileName` | String | The file name of the image to check including the file name extension |
-| `sourceUrl` | String | The complete URL of the image to check |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `accountId` | String | yes | The ID of the Illuminate account  |
+| `fileName` | String | yes | The file name of the image to check including the file name extension |
+| `sourceUrl` | String | yes | The complete URL of the image to check |
 
 After running, you can [Get the Protection Status](#get-protection-status).
 
@@ -612,23 +611,23 @@ https://api.dmrc.app/rest/asset?input={"accountId": "{{AccountID}}", "assetId": 
 
 **Query Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| input | Object | Contains the Illuminate account ID, image's assetId, and a patch object containing the custom attributes |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `input` | Object | yes | Contains the Illuminate account ID, image's assetId, and a patch object containing the custom attributes |
 
 **Input Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| `accountId` | String | The ID of the Illuminate account  |
-| `assetId` | String | The asset ID of the image you want to update |
-| `patch` | Object | Contains a customAttributes object that lists the key/value pairs to add |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `accountId` | String | yes | The ID of the Illuminate account  |
+| `assetId` | String | yes | The asset ID of the image you want to update |
+| `patch` | Object | yes | Contains a customAttributes object that lists the key/value pairs to add |
 
 **Patch Parameters**
 
-| Name | Type | Description |
-|------|------|-------------|
-| `customAttributes` | Object | Contains a comma-separated list of `key`: "value" pairs |
+| Name | Type | Required? | Description |
+|------|------|-----------|-------------|
+| `customAttributes` | Object | yes | Contains a comma-separated list of `key`: "value" pairs |
 
 **Sample Output**
 
@@ -716,8 +715,8 @@ curl -H "Authorization: ApiKey $API_KEY" \
 
 ### Add Three Custom Attributes
 
-To get the assetId, perform all the steps for checking the image and set the 
-assetId to the value of originalAssetId returned by 
+To get the `assetId`, perform all the steps for checking the image and set the 
+`assetId` to the value of `originalAssetId` returned by 
 [GET /assets](#get-protection-status).
 
 ```shell
