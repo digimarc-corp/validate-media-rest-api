@@ -1,8 +1,8 @@
-# Digimarc Illuminate&trade; Validate Media REST API
+# Illuminate&trade; Validate Media REST API
 
 The validate-media-rest-api repository contains information and examples, for 
 using the Validate Media REST API to work with protected images on 
-the Digimarc Illuminate&trade; Platform.
+the Illuminate&trade; Platform.
 
 * [Getting Started](#getting-started)
 * [Output Parameters](#output-parameters)
